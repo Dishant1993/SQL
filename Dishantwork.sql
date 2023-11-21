@@ -2,7 +2,7 @@ use orders;
 
 show tables;
 
-/* 7. Write a query to display carton id, (len*width*height) as carton_vol and 
+/* 1. Write a query to display carton id, (len*width*height) as carton_vol and 
 identify the optimum carton (carton with the least volume whose volume is greater than the total 
 volume of all items (len * width * height * product_quantity))
 for a given order whose order id is 10006, 
@@ -18,7 +18,7 @@ Assume all items of an order are packed into one single carton (box). */
     )
     order by carton_vol limit 1;
     
- /*   8. Write a query to display details (customer id,customer fullname,order id,product quantity) of customers who bought more than ten (i.e. total order qty)
+ /*   2. Write a query to display details (customer id,customer fullname,order id,product quantity) of customers who bought more than ten (i.e. total order qty)
     products with credit card or Net banking as the mode of payment per shipped order. (6 ROWS) */
    
    select oc.customer_id,
@@ -32,7 +32,7 @@ Assume all items of an order are packed into one single carton (box). */
     group by oc.customer_id, fullname, oh.order_id
     having tot_qty > 10;
     
-  /* 9. Write a query to display the order_id, customer id 
+  /* 3. Write a query to display the order_id, customer id 
    and cutomer full name of customers starting with the alphabet "A" 
    along with (product_quantity) as total quantity of products shipped for order ids > 10030. */
    
@@ -43,7 +43,7 @@ Assume all items of an order are packed into one single carton (box). */
     and oh.order_status = 'Shipped' inner join order_items oi on oh.order_id = oi.order_id
     where oh.order_id > 10060 group by oc.customer_id, fullname;
     
-   /* 10. Write a query to display product class description ,total quantity (sum(product_quantity),
+   /* 4. Write a query to display product class description ,total quantity (sum(product_quantity),
     Total value (product_quantity * product price) and show which class of products have been shipped highest(Quantity)
     to countries outside India other than USA? Also show the total value of those items. */
     
